@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Demo conso Web API</string>
+    <string name="query_countries">Enter a query to search countries</string>
+    <string name="btn_search">Search</string>
+    <string name="hint_search">Belgium</string>
+    <string name="allow_charactere_edittext">azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN</string>
+    <string name="result_none">No search result</string>
+    <string name="result_success">Result found (%d)</string>
+    <string name="result_loading">In loading</string>
 </resources>
