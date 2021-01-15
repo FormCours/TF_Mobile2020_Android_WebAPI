@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lv_main_result_countries"
         android:layout_width="match_parent"
         android:layout_height="0dp"

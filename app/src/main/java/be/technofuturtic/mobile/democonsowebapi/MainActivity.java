@@ -1,21 +1,19 @@
 package be.technofuturtic.mobile.democonsowebapi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
+import be.technofuturtic.mobile.democonsowebapi.adapter.CountryAdapter;
 import be.technofuturtic.mobile.democonsowebapi.model.Country;
 import be.technofuturtic.mobile.democonsowebapi.request.RequestCountryTask;
 
@@ -24,7 +22,9 @@ public class MainActivity extends AppCompatActivity implements RequestCountryTas
     Button btnSearch;
     EditText etQuery;
     TextView tvResultTitle;
-    ListView lvResultCountries;
+    RecyclerView lvResultCountries;
+
+    CountryAdapter countryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +61,15 @@ public class MainActivity extends AppCompatActivity implements RequestCountryTas
             task.execute(query);
 
             tvResultTitle.setText(R.string.result_loading);
-            ArrayAdapter ap = (ArrayAdapter) lvResultCountries.getAdapter();
-            ap.clear();
+            countryAdapter.clear();
         });
 
-        // Gestion de la liste
-        ArrayAdapter<Country> adapter = new ArrayAdapter<>(
-          getApplicationContext(),
-          android.R.layout.simple_list_item_1
-        );
-        lvResultCountries.setAdapter(adapter);
+        // Gestion de la RecyclerView
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
+        lvResultCountries.setLayoutManager(manager);
+
+        countryAdapter = new CountryAdapter(this);
+        lvResultCountries.setAdapter(countryAdapter);
     }
 
     @Override
@@ -84,8 +83,7 @@ public class MainActivity extends AppCompatActivity implements RequestCountryTas
         }
 
         if (countries != null) {
-            ArrayAdapter<Country> ap = (ArrayAdapter<Country>) lvResultCountries.getAdapter();
-            ap.addAll(countries);
+            countryAdapter.add(countries);
         }
     }
 }

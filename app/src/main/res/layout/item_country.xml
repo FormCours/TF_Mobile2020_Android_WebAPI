@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp">
+
+    <TextView
+        android:id="@+id/tv_item_country_name"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:text="PAYS !!!!!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_item_country_currencies"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:text="Money : Euro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/tv_item_country_name"
+        android:layout_alignParentStart="true"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_item_country_population"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:text="Population : 10000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/tv_item_country_currencies"
+        android:layout_alignParentStart="true"
+        />
+
+    <ImageView
+        android:id="@+id/img_item_country_flag"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+
+        android:layout_alignParentEnd="true"
+        />
+
+</RelativeLayout>
